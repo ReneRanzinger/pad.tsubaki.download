@@ -35,7 +35,7 @@ public class App
         // initialize from properties file
         try
         {
-            Properties t_properties = App.loadEmailProperties();
+            Properties t_properties = App.loadTsubakiProperties();
             t_localPath = t_properties.getProperty(App.PROPERTY_KEY_PATH);
             t_tsubakiDatabaseURL = t_properties.getProperty(App.PROPERTY_KEY_URL);
         }
@@ -48,6 +48,12 @@ public class App
         {
             t_localPath = a_args[0];
             t_tsubakiDatabaseURL = a_args[1];
+        }
+        else
+        {
+            System.out.println("Unable to perform download. Expect two commandline arguments.");
+            App.printComandParameter();
+            return;
         }
         // check if information is there
         if (t_tsubakiDatabaseURL == null)
@@ -121,7 +127,7 @@ public class App
         System.out.println("be downloaded.");
     }
 
-    private static Properties loadEmailProperties() throws Exception
+    private static Properties loadTsubakiProperties() throws Exception
     {
         // open the file
         FileReader t_reader = new FileReader("tsubaki.properties");
