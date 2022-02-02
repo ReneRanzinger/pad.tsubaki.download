@@ -49,7 +49,7 @@ public class App
             t_localPath = a_args[0];
             t_tsubakiDatabaseURL = a_args[1];
         }
-        else
+        else if (a_args.length > 0)
         {
             System.out.println("Unable to perform download. Expect two commandline arguments.");
             App.printComandParameter();
